@@ -4,6 +4,7 @@ public class LocationStats {
 
     private String state;
     private String country;
+    private int LatestTotalCases;
 
     public String getState() {
         return state;
@@ -29,7 +30,13 @@ public class LocationStats {
         LatestTotalCases = latestTotalCases;
     }
 
-    private int LatestTotalCases;
-
+    @Override
+    public String toString(){
+        return "LoacaltionStats{" +
+                "state=" + state + '\'' +
+                ", country" + country + '\'' +
+                ", latestTotalCases" + LatestTotalCases +
+                '}';
+    }
 
 }
