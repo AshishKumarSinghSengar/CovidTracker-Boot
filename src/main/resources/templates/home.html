@@ -5,8 +5,40 @@
         <title>CoronaVirus Tracker Application</title>
         <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8" />
         <link rel="stylesheet" type="text/css" href="" />
+        <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css" />
+        <script src="./bootstrap/js/bootstrap.min.js"></script>
     </head>
+
     <body>
-        <p text="${testName}"></p>
+
+    <div class="container">
+        <h1>CoronaVirus Tracker Application</h1>
+        <p>This application lists the current number of cases reported across the globe</p>
+
+        <div class="jumbotron">
+            <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+            <p class="lead">Total cases reported as of today</p>
+            <hr class="my-4"/>
+            <p>
+                <span>New Cases Reported</span>
+                <span th:text="${totalNewCases}"></span>
+            </p>
+        </div>
+
+            <table class="table">
+                <tr>
+                    <th>State</th>
+                    <th>Country</th>
+                    <th>Total Cases Reported</th>
+                    <th>Total Number Of New Cases</th>
+                </tr>
+                <tr th:each="locationStat : ${locationStats}">
+                    <td th:text="${locationStat.state}"></td>
+                    <td th:text="${locationStat.country}"></td>
+                    <td th:text="${locationStat.latestTotalCases}">0</td>
+                    <td th:text="${locationStat.diffFromPrevDay}">0</td>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>
